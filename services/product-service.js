@@ -10,14 +10,6 @@ const create = async (title, description, price, image, tag, userId) => {
     tag,
     userId,
   });
-
-  //   if (Array.isArray(image)) {
-  //     image.forEach((i) => {
-  //       PictureService.createPicture(i, product.id);
-  //     });
-  //   } else {
-  //     PictureService.createPicture(image, product.id);
-  //   }
   return product;
 };
 
@@ -36,11 +28,6 @@ const getAll = async ({ q, offset, limit, tag }) => {
           ],
           tag,
         },
-        include: [
-          {
-            model: Picture,
-          },
-        ],
         limit,
         offset,
       });
@@ -51,11 +38,6 @@ const getAll = async ({ q, offset, limit, tag }) => {
             [Op.iLike]: "%" + q + "%",
           },
         },
-        include: [
-          {
-            model: Picture,
-          },
-        ],
         limit,
         offset,
       });
