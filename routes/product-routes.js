@@ -1,9 +1,9 @@
+const router = require("express").Router();
 const auth = require("../middlewares/auth-middleware");
 const checkPermission = require("../middlewares/check-permission");
 const { checkRole } = require("../middlewares/check-role");
 const { Product } = require("../models");
 const ProductController = require("./../controllers/product-controller");
-const router = require("express").Router();
 
 router.post("/create", auth, ProductController.create);
 router.delete(

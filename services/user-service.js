@@ -12,7 +12,7 @@ const {
 const { generateTokens, validateRefreshToken } = require("../utils/tokens");
 const { sendActivationMail } = require("./mail-service");
 
-const signup = async (email, password, firstName, lastName, role) => {
+const signup = async (email, password, firstName, lastName, role = "USER") => {
   const oldUser = await User.findOne({ where: { email } });
 
   if (oldUser) {

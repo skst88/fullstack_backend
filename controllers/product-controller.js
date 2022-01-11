@@ -23,7 +23,7 @@ const getAll = async (req, res, next) => {
   try {
     let { q, page, limit, tag } = req.query;
     page = page || 1;
-    limit = limit || 6;
+    limit = limit || 3;
     const offset = page * limit - limit;
     const product = await ProductService.getAll({ offset, limit, q, tag });
     res.json(product);
@@ -33,12 +33,7 @@ const getAll = async (req, res, next) => {
 };
 const getOne = async (req, res, next) => {
   try {
-    // let { q, page, limit, tag } = req.query;
-    // page = page || 1;
-    // limit = limit || 6;
-    // const offset = page * limit - limit;
     const { id } = req.params;
-
     const product = await ProductService.getOne(id);
     res.json(product);
   } catch (error) {
